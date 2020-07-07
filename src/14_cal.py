@@ -30,3 +30,33 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+args = len(sys.argv)
+def fCal():
+  if args == 1:
+    year = datetime.now().year
+    month = datetime.now().month
+  elif args == 2:
+    year = datetime.now().year
+    if str.isnumeric(sys.argv[1]) and int(sys.argv[1]) > 0 and int(sys.argv[1]) < 13:
+      month = sys.argv[1]
+    else:
+      print("Months can only be 1 - 12 - Please run file as 14_cal.py [month] [year]")
+      return None
+  elif args == 3:
+    if str.isnumeric(sys.argv[2]) and int(sys.argv[2]) < 0:
+      print("Year Must be over 0")
+      return None
+    elif str.isnumeric(sys.argv[1]) and int(sys.argv[1]) > 0 and int(sys.argv[1]) < 13 and str.isnumeric(sys.argv[2]) and int(sys.argv[2]) > 0:
+      month = sys.argv[1]
+      year = sys.argv[2]
+    else:
+      print("Issue with inputs please confirm numbers used- Please run file as 14_cal.py [month] [year]")
+      return None
+  else:
+    print("Issue with inputs - Please run file as 14_cal.py [month] [year]")
+    return None
+  
+  print(calendar.month(int(year), int(month)))
+
+fCal()
