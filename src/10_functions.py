@@ -22,4 +22,4 @@ def print_ev_od(num):
     else:
         print("Odd")
 
-print(print_ev_od(num))
+print_ev_od(num)
